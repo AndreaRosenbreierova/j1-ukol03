@@ -22,9 +22,13 @@ public class HlavniProgram {
         Disk andrejkyDisk = new Disk();
         andrejkyDisk.setKapacita(121_129_000_000L);
 
+        Disk andrejkyDisk2 = new Disk();
+        andrejkyDisk2.setKapacita(300_000_000_000L);
+
         andrejkyPocitac.setCpu(andrejkyProcesor);
         andrejkyPocitac.setRam(andrejkyPamet);
         andrejkyPocitac.setPevnyDisk(andrejkyDisk);
+        andrejkyPocitac.setDruhyDisk(andrejkyDisk2);
 
         System.out.println(andrejkyPocitac.toString());
 
@@ -53,6 +57,17 @@ public class HlavniProgram {
         System.out.println(andrejkyPocitac.getPevnyDisk().toString());
         andrejkyPocitac.vytvorSouboryOVelikosti(1);
         System.out.println(andrejkyPocitac.toString());
+        andrejkyPocitac.zapniSe();
+        andrejkyPocitac.vymazSouboryOVelikosti(andrejkyPocitac.getDruhyDisk().getVyuziteMisto());
+        System.out.println(andrejkyPocitac.toString());
+        andrejkyPocitac.vytvorSouboryOVelikosti(andrejkyPocitac.getDruhyDisk().getKapacita());
+        System.out.println(andrejkyPocitac.toString());
+        andrejkyPocitac.vytvorSouboryOVelikosti(andrejkyPocitac.getPevnyDisk().getKapacita());
+        System.out.println(andrejkyPocitac.toString());
+
+
+
+
 
 
 

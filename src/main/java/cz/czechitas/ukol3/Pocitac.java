@@ -5,6 +5,17 @@ public class Pocitac {
     private Procesor cpu;
     private Pamet ram;
     private Disk pevnyDisk;
+    private Disk druhyDisk;
+
+
+    public Disk getDruhyDisk() {
+        return druhyDisk;
+    }
+
+    public void setDruhyDisk(Disk druhyDisk) {
+        this.druhyDisk = druhyDisk;
+    }
+
 
     public void vytvorSouboryOVelikosti(long velikost){
         if (!jeZapnuty){
@@ -17,6 +28,11 @@ public class Pocitac {
            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
             return;
         }
+         volneMisto = druhyDisk.getKapacita() - druhyDisk.getVyuziteMisto();
+        if (volneMisto >= velikost){
+            druhyDisk.setVyuziteMisto(druhyDisk.getVyuziteMisto() + velikost);
+            return;
+        }
         System.err.println("Kapacita paměti není dostatečně velká.");
 
 
@@ -27,7 +43,11 @@ public class Pocitac {
             return;
         }
 
-        if (velikost <= pevnyDisk.getVyuziteMisto() ){
+        if (velikost <= druhyDisk.getVyuziteMisto() ){
+            druhyDisk.setVyuziteMisto(druhyDisk.getVyuziteMisto() - velikost);
+            return;
+        }
+        if (velikost <= pevnyDisk.getVyuziteMisto() ) {
             pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
             return;
         }
@@ -93,13 +113,13 @@ public class Pocitac {
             return "Pocitac" +
                     " je zapnutý. " +
                       cpu +
-                    ram + pevnyDisk;
+                    ram + pevnyDisk + " " + druhyDisk;
         }
         return "Pocitac" +
                 " je vypnutý. " +
                  cpu +
                 ram +
-                pevnyDisk;
+                pevnyDisk + " " + druhyDisk;
     }
 }
 
