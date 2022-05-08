@@ -22,9 +22,8 @@ public class Procesor {
 
     @Override
     public String toString() {
-        return "Procesor{" +
-                "vyrobce='" + vyrobce + '\'' +
-                ", rychlost=" + rychlost +
-                '}';
+        return "Počítač obsahuje procesor " +
+                vyrobce + ". " +
+                "Rychlost procesoru je " + rychlost + ". ";
     }
 }

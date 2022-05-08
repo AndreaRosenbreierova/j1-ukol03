@@ -38,6 +38,25 @@ public class HlavniProgram {
         andrejkyPocitac.vypniSe();
         System.out.println(andrejkyPocitac.toString());
 
+        andrejkyPocitac.zapniSe();
+        andrejkyPocitac.vytvorSouboryOVelikosti(1);
+        System.out.println(andrejkyPocitac.toString());
+        andrejkyPocitac.vymazSouboryOVelikosti(2);
+        System.out.println(andrejkyPocitac.getPevnyDisk().toString());
+        andrejkyPocitac.vytvorSouboryOVelikosti(andrejkyPocitac.getPevnyDisk().getKapacita());
+        andrejkyPocitac.vymazSouboryOVelikosti(1);
+        System.out.println(andrejkyPocitac.getPevnyDisk().toString());
+        andrejkyPocitac.vytvorSouboryOVelikosti(andrejkyPocitac.getPevnyDisk().getKapacita());
+        System.out.println(andrejkyPocitac.getPevnyDisk().toString());
+        andrejkyPocitac.vypniSe();
+        andrejkyPocitac.vymazSouboryOVelikosti(andrejkyPocitac.getPevnyDisk().getKapacita());
+        System.out.println(andrejkyPocitac.getPevnyDisk().toString());
+        andrejkyPocitac.vytvorSouboryOVelikosti(1);
+        System.out.println(andrejkyPocitac.toString());
+
+
+
+
 
 
 

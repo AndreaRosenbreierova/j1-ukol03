@@ -6,6 +6,35 @@ public class Pocitac {
     private Pamet ram;
     private Disk pevnyDisk;
 
+    public void vytvorSouboryOVelikosti(long velikost){
+        if (!jeZapnuty){
+            System.err.println("Počítač je vypnutý.");
+            return;
+        }
+        long volneMisto = pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto();
+
+        if(volneMisto >= velikost){
+           pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+            return;
+        }
+        System.err.println("Kapacita paměti není dostatečně velká.");
+
+
+    }
+    public void vymazSouboryOVelikosti(long velikost){
+        if (!jeZapnuty){
+            System.err.println("Počítač je vypnutý.");
+            return;
+        }
+
+        if (velikost <= pevnyDisk.getVyuziteMisto() ){
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+            return;
+        }
+        System.err.println("Špatná velikost mazaného souboru.");
+    }
+
+
     public boolean JeZapnuty() {
         return jeZapnuty;
     }
@@ -60,12 +89,17 @@ public class Pocitac {
 
     @Override
     public String toString() {
-        return "Pocitac{" +
-                "jeZapnuty=" + jeZapnuty +
-                ", cpu=" + cpu +
-                ", ram=" + ram +
-                ", pevnyDisk=" + pevnyDisk +
-                '}';
+        if (jeZapnuty){
+            return "Pocitac" +
+                    " je zapnutý. " +
+                      cpu +
+                    ram + pevnyDisk;
+        }
+        return "Pocitac" +
+                " je vypnutý. " +
+                 cpu +
+                ram +
+                pevnyDisk;
     }
 }
 

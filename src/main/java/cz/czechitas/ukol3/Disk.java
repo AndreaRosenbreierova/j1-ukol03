@@ -14,6 +14,8 @@ public class Disk {
 
     public long getVyuziteMisto() {
         return vyuziteMisto;
+
+
     }
 
     public void setVyuziteMisto(long vyuziteMisto) {
@@ -22,9 +24,8 @@ public class Disk {
 
     @Override
     public String toString() {
-        return "Disk{" +
-                "kapacita=" + kapacita +
-                ", vyuziteMisto=" + vyuziteMisto +
-                '}';
+        return
+                "Kapacita disku je " + kapacita + ". " +
+                "Využité místo je " + vyuziteMisto + ".";
     }
 }
